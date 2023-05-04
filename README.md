@@ -1,6 +1,6 @@
 # Evaluating plate discipline in Major League Baseball with Bayesian Additive Regression Trees
 
-This repository contains code from the paper \textit{Evaluating plate discipline in Major League Baseball with Bayesian Additive Regression Trees}.
+This repository contains code from the paper *Evaluating plate discipline in Major League Baseball with Bayesian Additive Regression Trees*.
 
 ## Data
 
