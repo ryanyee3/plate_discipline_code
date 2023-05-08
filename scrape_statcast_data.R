@@ -1,6 +1,6 @@
 
-# scrapes pitch data from MLBs Statcast database
-# based on https://billpetti.github.io/2021-04-02-build-statcast-database-rstats-version-3.0/
+# scrapes pitch data from MLBs Statcast database based on Bill Petti's tutorial
+# link: https://billpetti.github.io/2021-04-02-build-statcast-database-rstats-version-3.0/
 
 # Setup -------------------------------------------------------------------
 

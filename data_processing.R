@@ -1,5 +1,7 @@
 
-# processes raw data scraped from statcast to fit models
+# processes raw data from scrape_statcast_data.R 
+# pitch_data uses 2019 pitches and is used to fit strike and contact probability models
+# xR_data uses 2015 - 2018 pitches and is used to fit BARTxR
 
 # Setup -------------------------------------------------------------------
 
@@ -253,6 +255,7 @@ get_woba_data <- function(data) {
   
 }
 
+# combines data cleaning and wOBA calculation functions
 get_data <- function(data) {
   
   C <- get_clean_data(data)
@@ -305,10 +308,10 @@ unik_catchers <- unique(pitch_data$catcher)
 unik_umpires <- unique(pitch_data$umpire)
 
 # save lists of unique batters, pitchers, catchers, and umpires
-save(unik_batters,file="../data/unik_batters.RData")
-save(unik_pitchers,file="../data/unik_pitchers.RData")
-save(unik_catchers,file="../data/unik_catchers.RData")
-save(unik_umpires,file="../data/unik_umpires.RData")
+save(unik_batters, file=paste0(data_dir, "unik_batters.RData"))
+save(unik_pitchers, file=paste0(data_dir, "unik_pitchers.RData"))
+save(unik_catchers, file=paste0(data_dir, "unik_catchers.RData"))
+save(unik_umpires, file=paste0(data_dir, "unik_umpires.RData"))
 
 # index personnel starting at 0 (friendlier for flexBART)
 pitch_data <- pitch_data %>%

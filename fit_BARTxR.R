@@ -57,4 +57,3 @@ BARTxR_model <- flexBART(Y_train = Y,
                          save_trees = TRUE)
 
 save(BARTxR_mode, file = paste0(model_dir, "BARTxR_model.RData"))
-

@@ -35,9 +35,7 @@ load(paste0(data_dir, "unik_umpires.RData"))
 # remove pitches where the batter swings
 taken_pitches <- pitch_data %>% filter(swing==0)
 
-# Rescale Variables -------------------------------------------------------
-
-# flexBART works better when continuous variables are rescaled to (-1, 1)
+# flexBART works better when continuous variables are re-scaled to (-1, 1)
 taken_pitches$plate_x <- rescale(pitch_data$plate_x, to = c(-1,1), from = range(pitch_data$plate_x))
 taken_pitches$plate_z <- rescale(pitch_data$plate_z, to = c(-1,1), from = range(pitch_data$plate_z))
 taken_pitches$b_cwoba <- rescale(pitch_data$b_cwoba, to = c(-1,1), from = range(pitch_data$b_cwoba))
@@ -47,11 +45,13 @@ taken_pitches$p_cwoba <- rescale(pitch_data$p_cwoba, to = c(-1,1), from = range(
 
 Y <- taken_pitches$called_strike %>% as.integer()
 
-X_cont <- taken_pitches %>% select(balls,strikes,outs_when_up,inning,stand,p_throws,
-                               is_same_hand,is_on_3b,is_on_2b,is_on_1b,inning_topbot,
-                               plate_x,plate_z,deficit,b_cwoba,p_cwoba) %>% as.matrix()
+X_cont <- taken_pitches %>% 
+  select(balls, strikes, outs_when_up, inning, stand, p_throws, is_same_hand,
+         is_on_3b, is_on_2b, is_on_1b, inning_topbot, plate_x, plate_z, deficit,
+         b_cwoba, p_cwoba) %>% 
+  as.matrix()
 
-X_cat <- taken_pitches %>% select(batter,pitcher,catcher,umpire)
+X_cat <- taken_pitches %>% select(batter, pitcher, catcher, umpire)
 
 unif_cuts <- c(F,F,F,F,F,F,F,F,F,F,F,T,T,F,T,T)
 

@@ -1,5 +1,6 @@
 
 # calculates EVdiff and xR_optimal for every pitch in the dataset
+# flexBART download: https://github.com/skdeshpande91/flexBART
 
 # Setup -------------------------------------------------------------------
 
@@ -19,7 +20,7 @@ library(scales)
 # pitch data
 load(paste0(data_dir, "pitch_data.RData"))
 
-# scale pitch data
+# re-scale pitch data to same scaling used to fit models
 pitch_data$plate_x <- scales::rescale(pitch_data$plate_x, to = c(-1,1), from = range(pitch_data$plate_x))
 pitch_data$plate_z <- scales::rescale(pitch_data$plate_z, to = c(-1,1), from = range(pitch_data$plate_z))
 pitch_data$b_cwoba <- scales::rescale(pitch_data$b_cwoba, to = c(-1,1), from = range(pitch_data$b_cwoba))
