@@ -33,14 +33,14 @@ load(paste0(data_dir, "unik_catchers.RData"))
 load(paste0(data_dir, "unik_umpires.RData"))
 
 # remove pitches where the batter takes
-swung_pitches <- bart_df %>% filter(swing==1)
+swung_pitches <- pitch_data %>% filter(swing==1)
 
 # Rescale Variables -------------------------------------------------------
 
-swung_pitches$plate_x <- scales::rescale(pitches_data$plate_x, to = c(-1,1), from = range(pitches_data$plate_x))
-swung_pitches$plate_z <- scales::rescale(pitches_data$plate_z, to = c(-1,1), from = range(pitches_data$plate_z))
-swung_pitches$b_cwoba <- scales::rescale(pitches_data$b_cwoba, to = c(-1,1), from = range(pitches_data$b_cwoba))
-swung_pitches$p_cwoba <- scales::rescale(pitches_data$p_cwoba, to = c(-1,1), from = range(pitches_data$p_cwoba))
+swung_pitches$plate_x <- scales::rescale(pitch_data$plate_x, to = c(-1,1), from = range(pitch_data$plate_x))
+swung_pitches$plate_z <- scales::rescale(pitch_data$plate_z, to = c(-1,1), from = range(pitch_data$plate_z))
+swung_pitches$b_cwoba <- scales::rescale(pitch_data$b_cwoba, to = c(-1,1), from = range(pitch_data$b_cwoba))
+swung_pitches$p_cwoba <- scales::rescale(pitch_data$p_cwoba, to = c(-1,1), from = range(pitch_data$p_cwoba))
 
 # flexBART Arguments ------------------------------------------------------
 
